@@ -6,7 +6,7 @@ uint32_t strToInt(char* string)
 {
     uint32_t val = 0;
     uint8_t i=0;
-    while (string[i] != '\0') //1234
+    while (string[i] != '\0')
     {
         if((string[i]<48) || (string[i]>57))
         {
