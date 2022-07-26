@@ -7,28 +7,35 @@ double strToFloat(char* str)
     uint8_t int_num = 0;
     uint8_t float_num = 0;
     uint8_t dot_num = 0;
-    uint8_t temp = 0;
-    while (str[temp] != '\0')
+    uint8_t counter_char = 0;
+    while (str[counter_char] != '\0')
     {
-        if( str[temp]<48 || str[temp]>57)
+        if(str[counter_char]>=48 && str[counter_char]<=57)
         {
-            if(str[temp]==46 && dot_num < 1)
+            if(dot_num < 1)
             {
-                dot_num++;
-                int_num = temp;
+                ++int_num;
             }
-            else
-            {
-                printf("Chuoi khong hop le! Status code: ");
-                return -1;
+            else{
+                ++float_num;
             }
-        }
-        temp++;
-    }
-    float_num = temp - int_num -1;
 
+        }
+        else if(str[counter_char]==46 && dot_num < 1)
+        {
+            ++dot_num;
+        }
+        else{
+            printf("Chuoi khong hop le!. Status code: ");
+            return -1;
+        }
+        ++counter_char;
+    }
+    printf("%d\n", int_num);
+    printf("%d\n", float_num);
     uint32_t int_val = 0;
     uint32_t float_val = 0.0;
+    uint32_t temp =0;
     double value = 0.0;
 
     for(int i=1; i<=int_num; i++)
@@ -51,7 +58,7 @@ double strToFloat(char* str)
 
 int main()
 {
-    char string[] = "02343.476723"; // <- input new string here
+    char string[] = ".476723"; // <- input new string here
     printf("%f\n", strToFloat(string));
 
     return 0;
