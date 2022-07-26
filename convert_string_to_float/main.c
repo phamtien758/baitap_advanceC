@@ -31,8 +31,6 @@ double strToFloat(char* str)
         }
         ++counter_char;
     }
-    printf("%d\n", int_num);
-    printf("%d\n", float_num);
     uint32_t int_val = 0;
     uint32_t float_val = 0.0;
     uint32_t temp =0;
